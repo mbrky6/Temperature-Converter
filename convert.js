@@ -2,11 +2,13 @@ window.addEventListener("DOMContentLoaded", domLoaded);
 
 function domLoaded() {
   document.getElementById("convertButton").addEventListener("click", chooseConvert);
+  document.getElementById("cInput").addEventListener("input", function() { document.getElementById("fInput").value = ""; });
+  document.getElementById("fInput").addEventListener("input", function() { document.getElementById("cInput").value = ""; });
 }
 
 function chooseConvert() {
-  let textFahrenheit = document.getElementById("fInput");
   let textCelsius = document.getElementById("cInput");
+  let textFahrenheit = document.getElementById("fInput");
 
   if (textFahrenheit.value === "" && textCelsius.value !== "") {
     convertCtoF(textCelsius);
@@ -18,14 +20,14 @@ function chooseConvert() {
 
 function convertCtoF(degreesCelsius) {
   let degreesFahrenheit = document.getElementById("fInput");
-  let fah = degreesCelsius.value * 1.8 + 32;
+  let fah = parseFloat(degreesCelsius.value) * 1.8 + 32;
   degreesFahrenheit.value = fah;
-  degreesCelsius.value = "";
+
 } // function convertCtoF
 
 function convertFtoC(degreesFahrenheit) {
   let degreesCelsius = document.getElementById("cInput");
-  let cel = (degreesFahrenheit.value - 32) / 1.8;
+  let cel = (parseFloat(degreesFahrenheit.value) - 32) / 1.8;
   degreesCelsius.value = cel;
-  degreesFahrenheit.value = "";
+
 } // function convertFtoC
