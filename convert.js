@@ -12,20 +12,20 @@ function chooseConvert() {
   let textFahrenheit = document.getElementById("fInput");
 
   if (textFahrenheit.value === "" && textCelsius.value !== "") {
-    console.log(convertCtoF(textCelsius));
+    console.log(convertCtoF(textCelsius.value));
   } // if (converting C to F)
   else if (textFahrenheit.value !== "" && textCelsius.value === "") {
-    console.log(convertFtoC(textFahrenheit));
+    console.log(convertFtoC(textFahrenheit.value));
   } // if (converting F to C)
 } // function chooseConvert
 
 function convertCtoF(degreesCelsius) {
-  if (isNaN(parseFloat(degreesCelsius.value))) {
-    document.getElementById("errorMessage").innerHTML = degreesCelsius.value + " is not a number"
+  if (isNaN(parseFloat(degreesCelsius))) {
+    document.getElementById("errorMessage").innerHTML = degreesCelsius + " is not a number"
   } // if (number not entered)
   else {
     let degreesFahrenheit = document.getElementById("fInput");
-    let fah = parseFloat(degreesCelsius.value) * 1.8 + 32;
+    let fah = parseFloat(degreesCelsius) * 1.8 + 32;
     degreesFahrenheit.value = fah;
 
     document.getElementById("errorMessage").innerHTML = "";
@@ -47,13 +47,13 @@ function convertCtoF(degreesCelsius) {
 } // function convertCtoF
 
 function convertFtoC(degreesFahrenheit) {
-  if (isNaN(parseFloat(degreesFahrenheit.value))) {
-    document.getElementById("errorMessage").innerHTML = degreesFahrenheit.value + " is not a number"
+  if (isNaN(parseFloat(degreesFahrenheit))) {
+    document.getElementById("errorMessage").innerHTML = degreesFahrenheit + " is not a number"
   } // if (number not entered)
 
   else {
     let degreesCelsius = document.getElementById("cInput");
-    let cel = (parseFloat(degreesFahrenheit.value) - 32) / 1.8;
+    let cel = (parseFloat(degreesFahrenheit) - 32) / 1.8;
     degreesCelsius.value = cel;
 
     document.getElementById("errorMessage").innerHTML = "";
