@@ -12,10 +12,10 @@ function chooseConvert() {
   let textFahrenheit = document.getElementById("fInput");
 
   if (textFahrenheit.value === "" && textCelsius.value !== "") {
-    convertCtoF(textCelsius);
+    console.log(convertCtoF(textCelsius));
   } // if (converting C to F)
   else if (textFahrenheit.value !== "" && textCelsius.value === "") {
-    convertFtoC(textFahrenheit);
+    console.log(convertFtoC(textFahrenheit));
   } // if (converting F to C)
 } // function chooseConvert
 
@@ -40,6 +40,8 @@ function convertCtoF(degreesCelsius) {
     else {
       weather.src = "cold.png";
     } // else
+
+    return fah;
   }
 
 } // function convertCtoF
@@ -66,6 +68,8 @@ function convertFtoC(degreesFahrenheit) {
     else {
       weather.src = "cold.png";
     } // else
+
+    return cel;
   }
 
 } // function convertFtoC
